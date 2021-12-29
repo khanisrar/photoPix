@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>photopix</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                Photo<span>pi</span>X
+            </div>
+            <div class="menu">
+                <button onclick="toggleSidebar()" id="aaya">X</button>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Gallery</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="icon">
+                <a href="#">Login</a>
+                <button onclick="toggleSidebar()" id="gya">≡</button>
+
+            </div>
+        </nav>
+        <section class="h-text">
+            <i class="fa fa-camera" id="camera"></i>
+            <h1>Capturing the moments that <br> captivate your heart.</h1>
+            <input type="text" name="" placeholder="Search here...">
+            <button><i class="fa fa-search"></i></button>
+
+
+        </section>
+
+    </header>
+    <section class="gallery">
+        <div class="portfolio">
+            <ul>
+                <li class="active" data-filter="*">All</li>
+                <li data-filter=".Style">Stylish</li>
+                <li data-filter=".Nature">Nature</li>
+
+                <li data-filter=".Tourist">Tourist</li>
+            </ul>
+        </div>
+        <div class="portfolio-c">
+            <div class="portfolio-item">
+                <div class="item Nature">
+                    <img src="./images/nature 1.jpg" alt="">
+                </div>
+                <div class="item Style">
+                    <img src="./images/stylish 1.jpg" alt="">
+                </div>
+                <div class="item Tourist">
+                    <img src="./images/tour 1.jpg" alt="">
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="item Nature">
+                    <img src="./images/nature 2.jpeg" alt="">
+                </div>
+                <div class="item Style">
+                    <img src="./images/stylish 2.jpg" alt="">
+                </div>
+                <div class="item Tourist">
+                    <img src="./images/tour 2.jpg" alt="">
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="item Nature">
+                    <img src="./images/nature 3.jpg" alt="">
+                </div>
+                <div class="item Style">
+                    <img src="./images/stylish 3.jpeg" alt="">
+                </div>
+                <div class="item Tourist">
+                    <img src="./images/tour 3.jpg" alt="">
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="item Nature">
+                    <img src="./images/tour 4.jpg" alt="">
+                </div>
+                <div class="item Style">
+                    <img src="./images/stylish 4.jpg" alt="">
+                </div>
+                <div class="item Tourist">
+                    <img src="./images/tour 7.jpg" alt="">
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="item Nature">
+                    <img src="./images/nature 5.jpg" alt="">
+                </div>
+                <div class="item Style">
+                    <img src="./images/stylish 5.jpg" alt="">
+                </div>
+                <div class="item Tourist">
+                    <img src="./images/tour 5.jpg" alt="">
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="item Nature">
+                    <img src="./images/nature 6.jpg" alt="">
+                </div>
+                <div class="item Style">
+                    <img src="./images/stylish 6.jpg" alt="">
+                </div>
+                <div class="item Tourist">
+                    <img src="./images/tour 6.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function toggleSidebar() {
+            let prevState = document.querySelector('.menu').style.display;
+
+            document.querySelector('.menu').style.display = prevState === 'none' ? 'flex' : 'none';
+        }
+
+
+        $('.portfolio-item').isotope({
+            // options
+            itemSelector: '.item',
+            layoutMode: 'fitRows'
+        });
+
+        $('.portfolio-item').isotope({
+            filter: '*'
+
+        });
+
+
+        $('.portfolio ul li').click(function () {
+            $('.portfolio ul li').removeClass('active');
+            $(this).addClass('active');
+
+            var selector = $(this).attr('data-filter');
+            console.log(selector)
+            $('.portfolio-item').isotope({
+                filter: selector
+
+            });
+            return false;
+        });
+    </script>
+
+</body>
+
+</html>
