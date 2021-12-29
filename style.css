@@ -154,7 +154,9 @@ li.active {
 
 @media screen and (max-width:900px) {
     header {
-        height: 85vh;
+        height: 82vh;
+        background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+        url('./images/stylish\ 4.jpg');
     }
     nav {
         width: 100%;
